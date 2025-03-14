@@ -1,9 +1,167 @@
+ChatGPT
+나의 말:
+html 만으로 구성된 웹페이지를 구성하려고 해. 회사 타이틀, 작품 스크린샷  정도의 정보가 들어간 코드를 만들어줘
+ChatGPT의 말:
+다음은 HTML만으로 구성된 간단한 웹페이지 코드입니다. 회사 타이틀과 작품 스크린샷을 포함하며, 기본적인 스타일을 추가하여 보기 좋게 구성했습니다.
+
+이 코드는 HTML만 사용하여 간단한 회사 소개 및 게임 스크린샷을 표시하는 페이지를 만듭니다. "screenshot.jpg"를 실제 게임 스크린샷 이미지로 교체하면 됩니다. 필요한 수정 사항이 있으면 알려주세요!
+
+나의 말:
+스크린샷 아래에 특정 링크로 이동할 수 있는 버튼 두개를 만들어줘
+ChatGPT의 말:
+스크린샷 아래에 두 개의 버튼을 추가했습니다. 하나는 공식 웹사이트로, 다른 하나는 게임 다운로드 페이지로 이동합니다. 필요하면 링크를 원하는 URL로 변경하세요!
+
+
+
+
+
+
+나의 말:
+스크린샷 위에 스크린샷 타이틀을 하나 넣고싶어. 그리고 스크린샷을 누르면 특정 url로 링크 하고싶어
+ChatGPT의 말:
+스크린샷 위에 "게임 스크린샷"이라는 타이틀을 추가했고, 이미지를 클릭하면 특정 URL("https://example.com/screenshot")로 이동하도록 설정했습니다. 필요하면 URL을 원하는 링크로 변경하세요!
+
+
+
+
+
+
+나의 말:
+아, 스크린샷을 눌러서 링크로 이동하는건 취소할게. 대신 아래에 버튼 두개를 추가로 만들어줘
+ChatGPT의 말:
+스크린샷을 클릭해 이동하는 기능을 제거하고, 버튼 두 개(커뮤니티, 고객 지원)를 추가했습니다. 필요하면 버튼 텍스트나 링크를 수정하세요!
+
+나의 말:
+새로 추가된 버튼은 스크린샷 바로 아래에 붙여줘. 기존에 있던 버튼 두개는 구분선을 하나 만들어줘
+ChatGPT의 말:
+새로 추가된 버튼(커뮤니티, 고객 지원)을 스크린샷 바로 아래로 이동시켰고, 기존 버튼(공식 웹사이트, 게임 다운로드)과 구분되도록 구분선을 추가했습니다. 원하는 대로 수정된 내용인지 확인해 주세요!
+
+
+
+
+
+
+나의 말:
+추가해준 커뮤니티 버튼하고 고객지원 버튼이 이미지였으면 좋겠어
+ChatGPT의 말:
+
+대신 채팅에서 답합니다
+커뮤니티와 고객 지원 버튼을 이미지로 변경했습니다. 이미지 파일(community.jpg, support.jpg)을 적절한 이미지로 교체해 주세요!
+
+
+
+
+
+
+
+
+
+
+
+검색
+
+이성
+
+ChatGPT는 실수를 할 수 있습니다. 중요한 정보는 재차 확인하세요.
+?
+
+
+Company Game Page
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>m50k</title>
+    <title>회사 타이틀</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,13 +178,16 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
-        h1 {
+        h1, h2 {
             color: #333;
+        }
+        .screenshot-container {
+            margin-top: 20px;
         }
         .screenshot {
             width: 100%;
             border-radius: 10px;
-            margin-top: 20px;
+            margin-top: 10px;
         }
         .button-container {
             margin-top: 20px;
@@ -44,13 +205,38 @@
         .button:hover {
             background-color: #0056b3;
         }
+        .divider {
+            margin: 20px 0;
+            border-top: 2px solid #ddd;
+        }
+        .image-button {
+            display: inline-block;
+            margin: 10px;
+        }
+        .image-button img {
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>m50k</h1>
         <p>우리의 새로운 슈팅 액션 RPG를 만나보세요!</p>
-        <img src="screenshot.jpg" alt="게임 스크린샷" class="screenshot">
+        <div class="screenshot-container">
+            <h2>댄스 디펜스</h2>
+            <img src="screenshot.jpg" alt="게임 스크린샷" class="screenshot">
+        </div>
+        <div class="button-container">
+            <a href="https://apps.apple.com/app/dance-defense/id6738940958" class="image-button">
+                <img src="appstore.png" alt="커뮤니티">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.def.dancedefense" class="image-button">
+                <img src="googleplay.png" alt="고객 지원">
+            </a>
+        </div>
+        <div class="divider"></div>
         <div class="button-container">
             <a href="usages.html" class="button">이용약관</a>
             <a href="removeaccount.html" class="button">계정탈퇴</a>
@@ -58,3 +244,5 @@
     </div>
 </body>
 </html>
+
+
