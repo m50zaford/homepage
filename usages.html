@@ -25,7 +25,7 @@
         })
         .then(text => {
             // 여기서 rich text 형태로 가공해도 됨
-            document.getElementById("output").textContent = text;
+            document.getElementById("output").innerHTML = text;
             // 또는 innerHTML로 HTML 태그 포함 표시 가능 (주의!)
             // document.getElementById("output").innerHTML = text;
         })
