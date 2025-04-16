@@ -17,7 +17,23 @@
 
         // iframe src 동적으로 설정
         const iframe = document.getElementById("termsFrame");
-        iframe.src = `https://m50k.com/law/personals_${lang}.txt`;
+
+        const filePath = `personals_${lang}.txt`;
+
+        fetch(filePath)
+        .then(response => {
+            if (!response.ok) throw new Error("파일을 불러올 수 없습니다.");
+            return response.text();
+        })
+        .then(text => {
+            // 여기서 rich text 형태로 가공해도 됨
+            document.getElementById("output").textContent = text;
+            // 또는 innerHTML로 HTML 태그 포함 표시 가능 (주의!)
+            // document.getElementById("output").innerHTML = text;
+        })
+        .catch(err => {
+            document.getElementById("output").textContent = `에러: ${err.message}`;
+        });
     </script>
 </body>
 </html>
