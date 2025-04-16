@@ -8,7 +8,16 @@
 <body>
     <header>
         <h1>이용약관</h1>
-        <iframe src="https://m50k.com/law/personals_kr.html" width="80%" height="1000"></iframe>
+        <iframe id="termsFrame" width="80%" height="1000"></iframe>
     </header>
+    <script>
+        // URL 파라미터에서 lang 값 가져오기 (예: ?lang=kr)
+        const params = new URLSearchParams(window.location.search);
+        const lang = params.get("lang") || "kr"; // 기본값: kr
+
+        // iframe src 동적으로 설정
+        const iframe = document.getElementById("termsFrame");
+        iframe.src = `https://m50k.com/law/personals_${lang}.txt`;
+    </script>
 </body>
 </html>
