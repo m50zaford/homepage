@@ -8,7 +8,7 @@
 <body>
     <header>
         <h1>이용약관</h1>
-        <iframe id="termsFrame" width="80%" height="1000"></iframe>
+        <div id="output">로딩 중...</div>
     </header>
     <script>
         // URL 파라미터에서 lang 값 가져오기 (예: ?lang=kr)
@@ -17,6 +17,7 @@
 
         // iframe src 동적으로 설정
         const iframe = document.getElementById("termsFrame");
+        iframe.src = `https://m50k.com/law/personals_${lang}.txt`;
 
         const filePath = `personals_${lang}.txt`;
 
