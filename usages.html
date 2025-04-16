@@ -16,10 +16,7 @@
         const lang = params.get("lang") || "kr"; // 기본값: kr
 
         // iframe src 동적으로 설정
-        const iframe = document.getElementById("termsFrame");
-        iframe.src = `https://m50k.com/law/personals_${lang}.txt`;
-
-        const filePath = `personals_${lang}.txt`;
+        const filePath = `https://m50k.com/law/personals_${lang}.txt`;
 
         fetch(filePath)
         .then(response => {
