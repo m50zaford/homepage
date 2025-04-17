@@ -44,7 +44,7 @@
                 let href = link.getAttribute("href");
 
                 // href가 잘못된 따옴표로 감싸진 경우 처리
-                if (href && href.includes('"')) {
+                if (href && href.includes('\"')) {
                     // 예: href=""https://..."" → "https://..."
                     href = href.replace(/^"+|"+$/g, '');
                     link.setAttribute("href", href);
