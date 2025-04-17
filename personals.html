@@ -35,7 +35,20 @@
             return response.text();
         })
         .then(text => {
-            document.getElementById("output").innerHTML = text;
+            const cleanedText = text.replace(/\\"/g, '"');
+            const output = document.getElementById("output");
+            output.innerHTML = cleanedText;
+
+            const links = output.querySelectorAll("a");
+
+            links.forEach(link => {
+                let href = link.getAttribute("href");
+            
+                if (href && href.includes('"')) {
+                    href = href.replace(/^"+|"+$/g, '');
+                    link.setAttribute("href", href);
+                }
+            });
         })
         .catch(err => {
             document.getElementById("output").textContent = `에러: ${err.message}`;
