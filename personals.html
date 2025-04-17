@@ -7,15 +7,26 @@
 </head>
 <body>
     <header>
-        <h1>개인정보 처리방침</h1>
+        <h1 id="title">개인정보 처리방침</h1>
         <div id="output">로딩 중...</div>
     </header>
     <script>
-        // URL 파라미터에서 lang 값 가져오기 (예: ?lang=kr)
         const params = new URLSearchParams(window.location.search);
-        const lang = params.get("lang") || "kr"; // 기본값: kr
+        const lang = params.get("lang") || "kr";
 
-        // iframe src 동적으로 설정
+        // 언어별 텍스트 설정
+        const titles = {
+            kr: "개인정보 처리방침",
+            en: "Privacy Policy"
+        };
+
+        const selectedTitle = titles[lang] || titles.kr;
+
+        // 제목(h1)과 브라우저 탭 제목(title) 변경
+        document.getElementById("title").textContent = selectedTitle;
+        document.title = selectedTitle;
+
+        // 내용 파일 불러오기
         const filePath = `https://m50k.com/law/personals_${lang}.txt`;
 
         fetch(filePath)
@@ -24,10 +35,7 @@
             return response.text();
         })
         .then(text => {
-            // 여기서 rich text 형태로 가공해도 됨
             document.getElementById("output").innerHTML = text;
-            // 또는 innerHTML로 HTML 태그 포함 표시 가능 (주의!)
-            // document.getElementById("output").innerHTML = text;
         })
         .catch(err => {
             document.getElementById("output").textContent = `에러: ${err.message}`;
